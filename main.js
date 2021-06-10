@@ -2,6 +2,7 @@
 const electron = require('electron')
 const path = require('path')
 const url = require('url')
+const React = require('react')
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 
@@ -23,8 +24,8 @@ function createWindow () {
         protocol: 'file:',
         slashes: true
     }))
-    // mainWindow.webContents.openDevTools()
-  // ウィンドウが閉じるときの処理
+    mainWindow.webContents.openDevTools()
+    // ウィンドウが閉じるときの処理
     mainWindow.on('closed', function () {
         mainWindow = null
     })
