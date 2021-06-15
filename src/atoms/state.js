@@ -1,5 +1,15 @@
-import { RecoilRoot, atom, useRecoilState } from 'recoil'
+import { atom, selector, useRecoilState, useRecoilValue } from 'recoil';
+
 const countState = atom({
-    key: 'sample/count',
-    default: 0
+  key: 'countState',
+  default: 0,
 })
+
+export const useCount = () => {
+  const [count, setCount] = useRecoilState(countState)
+  return {
+    state: count,
+    set: setCount,
+  }
+}
+export default useCount

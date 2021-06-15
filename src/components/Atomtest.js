@@ -1,20 +1,14 @@
 import React, { Component } from 'react'
-import { RecoilRoot, atom, useRecoilState } from 'recoil'
-
-
-
-class Atomtest extends Comment {
-    render () {
-        return (
-            <RecoilRoot>
+import useCount from '../atoms/state'
+function Atomtest () {
+    const { state } = useCount()
+    return (
             <div>
-                <button onClick={() => setCount(count - 1)}>Down</button>
-                {count}
-                <button onClick={() => setCount(count + 1)}>Up</button>
+                <button onClick={() => state.set(state.count - 1)}>Down</button>
+                <p>{state.count}</p> 
+                <button onClick={() => state.set(state.count + 1)}>Up</button>
             </div>
-            </RecoilRoot>
         )
-    }
 }
 
 export default Atomtest
